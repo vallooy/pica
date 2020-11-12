@@ -9,4 +9,7 @@ check <- function(x) {
     result <- "Zero"
   }
   return(result)
+  list(
+    message = paste(result)
+  )
 }
