@@ -17,6 +17,7 @@
         var valeur = $("#value").val();
         
         //perform the request
+        ocpu.seturl("../R");
         var req = ocpu.rpc("pica-R-test", {
           x : valeur
         }, function(output){
