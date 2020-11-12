@@ -15,12 +15,13 @@
         
         //read the value for 'myname'
         var valeur = $("#value").val();
-        
+        console.log(valeur);
         //perform the request
         ocpu.seturl("../R");
         var req = ocpu.rpc("check", {
           x : valeur
-        }, function(output){
+        }, function(output){          
+          console.log(output.message);
           $("#output").text(output.message);
         });
         
