@@ -9,7 +9,5 @@ check <- function(x) {
   else {
     result <- "Guilhem, selon R, ça c'est nul!"
   }
-  list(
-    message = paste(result)
-  )
+  list(message = paste(result))
 }
