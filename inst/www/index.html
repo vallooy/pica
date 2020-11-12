@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Example map</title>
-
-</head>
-
-<body>
-  <form>
-        <div class="form-group">
-          <label>Valeur</label>
-          <input type="number" class="form-control" id="value" value="0">
-        </div>        
-        <button type="submit" id="valeursubmit" class="btn btn-default">Soumettre</button>
-   </form>
+  <head>
+    <meta charset="UTF-8">
+    <title>Example map</title>
   
-  <iframe src="about:blank"></iframe>
+   <!-- Include order: first jquery, then opencpu.js, and then your code -->
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+    <script>
+      $(document).ready(function(){
+      $("#valeursubmit").on("click", function(){
+        //disable the button to prevent multiple clicks
+        $("#valeursubmit").attr("disabled", "disabled");
+        
+        //read the value for 'myname'
+        var valeur = $("#value").val();
+        
+        //perform the request
+        var req = ocpu.rpc("pica-R-test", {
+          x : valeur
+        }, function(output){
+          $("#output").text(output.result);
+        });
+        
+        //if R returns an error, alert the error message
+        req.fail(function(){
+          alert("Server error: " + req.responseText);
+        });
+        
+        //after request complete, re-enable the button 
+        req.always(function(){
+          $("#valeursubmit").removeAttr("disabled")
+        });
+      });
+    });
+    </script>
+
+  </head>
+
+  <body>
+    <form>
+      <div class="form-group">
+        <label>Valeur</label>
+        <input type="number" class="form-control" id="value" value="0">
+      </div>        
+      <button type="submit" id="valeursubmit" class="btn btn-default">Soumettre</button>
+   </form>
+  <p id="output"></p>
 </body>
 
 </html>
