@@ -8,7 +8,6 @@ check <- function(x) {
   else {
     result <- "Zero"
   }
-  return(result)
   list(
     message = paste(result)
   )
