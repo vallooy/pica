@@ -14,7 +14,7 @@
         $("#valeursubmit").attr("disabled", "disabled");
         
         //read the value for 'myname'
-        var valeur = $("#value").val();
+        var valeur = $("#namefield").val();
         console.log(valeur);
         //perform the request
         ocpu.seturl("../R");
@@ -42,10 +42,7 @@
 
   <body>
     <form>
-      <div class="form-group">
-        <label>Valeur</label>
-        <input type="number" class="form-control" id="value" value="0">
-      </div>        
+      <b>Ton nom :  </b> <input type="text" id="namefield">
       <button type="submit" id="valeursubmit" class="btn btn-default">Soumettre</button>
    </form>
   <p id="output"></p>
