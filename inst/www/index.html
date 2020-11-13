@@ -3,50 +3,52 @@
   <head>
     <meta charset="UTF-8">
     <title>Test pica</title>
+
   
    <!-- Include order: first jquery, then opencpu.js, and then your code -->
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> 
     <script src="//www.opencpu.org/js/archive/opencpu-0.4.js"></script>
     <script>
-      $(document).ready(function(){        
-        var mysession;
-        ocpu.seturl("../R");
-      $("#valeursubmit").on("click", function(){
+  var mysession;
+  $(document).ready(function(){        
+    ocpu.seturl("../R");
+    $("#chargedata").on("click", function(){
         //disable the button to prevent multiple clicks
-        $("#valeursubmit").attr("disabled", "disabled");
+        $("#chargedata").attr("disabled", "disabled");  
         
         //perform the request
         var req1 = ocpu.call("importMathDist", {parcelle : "larzat"}, function(session){
-          mysession = session;
-          console.log(mysession);
-          $("#output").text(mysession.getLoc());
-         }).fail(function(){
-          alert(req2.responseText);
+			mysession = session;
+            console.log(mysession);
+            $("#output").text(mysession.getLoc());
+        }).fail(function(){
+            alert(req2.responseText);
         });
-        var req2 = ocpu.call("Calcul_fourmis_distance", {
-            dist_mat : mysession
-            }, function(session){
-              session.getObject(function(data){
-              console.log(data);
-            });
-          }).fail(function(){
-          alert(req2.responseText);
-        });
-        
-        
-        
         
         //if R returns an error, alert the error message
         req1.fail(function(){
-          alert("Server error: " + req.responseText);
+			alert("Server error: " + req.responseText);
         });
         
         //after request complete, re-enable the button 
         req1.always(function(){
-          $("#valeursubmit").removeAttr("disabled")
+			$("#chargedata").removeAttr("disabled");
+            $("#calcul").removeAttr("disabled");
         });
-      });
     });
+    $("#calcul").on("click", function(){
+      console.log(mysession);
+          /*var req2 = ocpu.call("Calcul_fourmis_distance", {
+            dist_mat : mysession
+            }, function(session){
+              session.getObject(function(data){
+              console.log(data);
+              });
+            }).fail(function(){
+              alert(req2.responseText);
+            });*/
+    });
+});
     </script>
 
   </head>
@@ -54,7 +56,8 @@
   <body>
     <form>
       <b>Guilhem, donne-moi un nombre : </b> <input type="number" id="namefield" value="0">
-      <button type="submit" id="valeursubmit" class="btn btn-default">Soumettre</button>
+      <button type="submit" id="chargedata" class="btn btn-default">Charger les données</button>      
+      <button type="submit" id="calcul" class="btn btn-default" disabled>Calculer le parcours</button>
    </form>
   <p id="output"></p>
 </body>
