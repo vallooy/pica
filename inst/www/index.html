@@ -8,19 +8,30 @@
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> 
     <script src="//www.opencpu.org/js/archive/opencpu-0.4.js"></script>
     <script>
-      $(document).ready(function(){
+      $(document).ready(function(){        
+        var mysession;
+        ocpu.seturl("../R");
       $("#valeursubmit").on("click", function(){
         //disable the button to prevent multiple clicks
         $("#valeursubmit").attr("disabled", "disabled");
         
-        //read the value for 'myname'
-        var valeur = $("#namefield").val();
         //perform the request
-        ocpu.seturl("../R");
-        var req = ocpu.rpc("Calcul_fourmis_distance", {
-        }, function(output){          
-          console.log(output);
+        var req = ocpu.call("importMathDist", {"larzat"}, function(session){
+          mysession = session;
+          console.log(mysession.getKey());
+          $("#output").text(mysession.getLoc());
         });
+        
+        var req = ocpu.call("Calcul_fourmis_distance", {
+          dist_mat : mysession
+        }, function(session){
+          session.getObject(function(data){
+            console.log(data);
+          });
+        }).fail(function(){
+          alert(req.responseText);
+        });
+        
         
         //if R returns an error, alert the error message
         req.fail(function(){
