@@ -4,7 +4,7 @@ Calcul_fourmis_distance <- function() {
   annee <- 2017
   selected <- c(76,66,39,44,48,79)
   
-  parcelle <- read.csv("https://cloud.opencpu.org/ocpu/apps/vallooy/pica/www/Parcelle_simulated_larzat_2017.csv", sep = ",", dec = ".",header = T)  
+  parcelle <- read.csv("https://cloud.opencpu.org/ocpu/apps/vallooy/pica/www/Parcelle_simulated_Larzat_2017.csv", sep = ",", dec = ".",header = T)  
   #La liste des points de la parcelle
   
   liste_sites <- read.csv("https://cloud.opencpu.org/ocpu/apps/vallooy/pica/www/data_to_python_matrix_larzat.csv", sep = ",", dec = ".",header = T)  
