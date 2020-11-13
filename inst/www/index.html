@@ -18,11 +18,9 @@
         console.log(valeur);
         //perform the request
         ocpu.seturl("../R");
-        var req = ocpu.rpc("check", {
-          x : valeur
+        var req = ocpu.rpc("Calcul_fourmis_distance", {
         }, function(output){          
-          console.log(output.message);
-          $("#output").text(output.message);
+          alert(output);
         });
         
         //if R returns an error, alert the error message
