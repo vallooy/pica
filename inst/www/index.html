@@ -35,12 +35,12 @@
         
         
         //if R returns an error, alert the error message
-        req.fail(function(){
+        req1.fail(function(){
           alert("Server error: " + req.responseText);
         });
         
         //after request complete, re-enable the button 
-        req.always(function(){
+        req1.always(function(){
           $("#valeursubmit").removeAttr("disabled")
         });
       });
