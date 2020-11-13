@@ -18,7 +18,7 @@
         //perform the request
         var req = ocpu.call("importMathDist", {parcelle : "larzat"}, function(session){
           mysession = session;
-          console.log(mysession.getKey());
+          console.log(mysession);
           $("#output").text(mysession.getLoc());
         });
         
