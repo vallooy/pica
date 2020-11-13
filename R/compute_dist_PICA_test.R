@@ -10,7 +10,7 @@ Calcul_fourmis_distance <- function() {
   liste_sites <- read.csv("https://cloud.opencpu.org/ocpu/apps/vallooy/pica/www/data_to_python_matrix_larzat.csv", sep = ",", dec = ".",header = T)  
   # La liste des individus associés aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
     
-  dist_mat <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_larzat_2.csv", sep = ";", dec = ",")  
+  dist_mat <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_larzat_2.csv", sep = ";", dec = ",",header = T)  
   # La matrice de distance, assez long à charger
   
   #entree_file <- paste0(dossier,"Point_entree_",parcelle_ID,".txt")
