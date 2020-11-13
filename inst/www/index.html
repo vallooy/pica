@@ -16,7 +16,7 @@
         $("#valeursubmit").attr("disabled", "disabled");
         
         //perform the request
-        var req = ocpu.call("importMathDist", {"larzat"}, function(session){
+        var req = ocpu.call("importMathDist", {parcelle : "larzat"}, function(session){
           mysession = session;
           console.log(mysession.getKey());
           $("#output").text(mysession.getLoc());
