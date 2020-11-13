@@ -1,23 +1,12 @@
-# Ce script a pour but de calcule la distance d'un parcours entre plusieurs sites
-# Il repose sur l'algorithme des colonis de fourmis pour ordonner les sites de mesure et choisir l'interang d'accès.
-
-#Le dossier dans lequel se trouve les fichiers (matrice de distance, data_to_python et parcelle)
-
-dossier <- "~/Documents_sauvegarde/Data/Projet_PICA_2/"
-
-parcelle_ID <- "Arnel" # "Estagnol" ## "Arnel" #  "Larzat"
-
-year <- 2017 # 2018 ou 2019
-
-selected <- c(76,66,39,44,48,79)
-
-
 Calcul_fourmis_distance(parcelle_ID = Estagnol, 
                         annee = 2017, selected = c(76,66,39,44,48,79))
   
   
 # Charger toutes les fonctions d abord :
-Calcul_fourmis_distance <- function(parcelle_ID, annee, selected) {
+Calcul_fourmis_distance <- function() {
+  parcelle_ID <- "Estagnol"
+  annee <- 2017
+  selected <- c(76,66,39,44,48,79)
   
   parcelle_file <- "Parcelle_simulated_Estagnol_2017.csv"
   parcelle <- read.table(parcelle_file, sep = ",", dec = ".",header = T)  
@@ -25,15 +14,15 @@ Calcul_fourmis_distance <- function(parcelle_ID, annee, selected) {
   
   sites_file <- "data_to_python_matrix_estagnol.csv"
   liste_sites <- read.table(sites_file, sep = ",", dec = ".",header = T) 
-  # La liste des individus associés aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
+  # La liste des individus associÃ©s aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
     
   dist_mat_file <- "test_dist_estagnol2.csv"
   dist_mat <- read.table(dist_mat_file, sep = ";", dec = ",")
-  # La matrice de distance, assez long à charger
+  # La matrice de distance, assez long Ã  charger
   
   #entree_file <- paste0(dossier,"Point_entree_",parcelle_ID,".txt")
   #entree <- read.table(entree_file, sep = ",", dec = ".",header = T)
-  # Le point d'entrée dans la parcelle
+  # Le point d'entrÃ©e dans la parcelle
   
   ID_start <- NA
   # Les bords de rang utilises comme point d'entree dans la parcelle
@@ -84,14 +73,14 @@ Calcul_fourmis_distance <- function(parcelle_ID, annee, selected) {
   
   distance <- solution$Best$Longueur
   
-  #On rajoute la distance entre le point d'entrée et le bord de rang
+  #On rajoute la distance entre le point d'entrÃ©e et le bord de rang
   #distance <- distance + 2*sqrt( (entree$X - liste_sites$X[liste_sites$ID == ID_start])^2 + 
   #                                 (entree$Y - liste_sites$Y[liste_sites$ID == ID_start])^2 )
 
   chemin <- solution$Best$Chemin[1,]
   chemin <- chemin[ 1:(N + 1)]
   
-  while (chemin[1] != "A") { # on reordonne pour que ça parte de A, le point de depart
+  while (chemin[1] != "A") { # on reordonne pour que Ã§a parte de A, le point de depart
     chemin <- c(chemin[2:(N + 1)],chemin[1])
   }
   
@@ -750,7 +739,7 @@ fColonie<-function(MatDist=NULL,Groupe=NULL,Start=NULL,MatPher=NULL,Nfourmi=0,Ni
           diag(MatProb)<-0
         }
         if (Plot &!is.null(Coord)){
-          ListPlot$Titre<-paste("Iteration nÂ°",k," : meilleur chemin rencontre = ",format(BestLongueur,digits=5),sep="")
+          ListPlot$Titre<-paste("Iteration nÃ‚Â°",k," : meilleur chemin rencontre = ",format(BestLongueur,digits=5),sep="")
           ListPlot$MatPher<-MatPher
           OutPlot<-do.call(what = fPlot, args = ListPlot)
           VecCol<-"black"
