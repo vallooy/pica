@@ -4,16 +4,13 @@ Calcul_fourmis_distance <- function() {
   annee <- 2017
   selected <- c(76,66,39,44,48,79)
   
-  parcelle_file <- "Parcelle_simulated_Estagnol_2017.csv"
-  parcelle <- read.table(parcelle_file, sep = ",", dec = ".",header = T)  
+  parcelle <- read.csv("Parcelle_simulated_Estagnol_2017.csv", sep = ";", dec = ",",header = T)  
   #La liste des points de la parcelle
   
-  sites_file <- "data_to_python_matrix_estagnol.csv"
-  liste_sites <- read.table(sites_file, sep = ",", dec = ".",header = T) 
+  liste_sites <- read.csv("data_to_python_matrix_estagnol.csv", sep = ";", dec = ",",header = T)  
   # La liste des individus associés aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
     
-  dist_mat_file <- "test_dist_estagnol2.csv"
-  dist_mat <- read.table(dist_mat_file, sep = ";", dec = ",")
+  dist_mat <- read.csv("test_dist_estagnol2.csv", sep = ";", dec = ",",header = T)  
   # La matrice de distance, assez long à charger
   
   #entree_file <- paste0(dossier,"Point_entree_",parcelle_ID,".txt")
