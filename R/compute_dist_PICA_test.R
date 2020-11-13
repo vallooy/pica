@@ -9,7 +9,7 @@ importMathDist <- function(parcelle) {
 Calcul_fourmis_distance <- function(dist_mat) {
   parcelle_ID <- "Larzat"
   annee <- 2017
-  selected <- c(76,66,39,44,48,79)
+  selected <- c(76,66,39,44,48,79,99)
   
   parcelle <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/Parcelle_simulated_Larzat_2017.csv", sep = ",", dec = ".",header = T)  
   #La liste des points de la parcelle
