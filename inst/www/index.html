@@ -16,13 +16,11 @@
         $("#valeursubmit").attr("disabled", "disabled");
         
         //perform the request
-        var req = ocpu.call("importMathDist", {parcelle : "larzat"}, function(session){
+        var req1 = ocpu.call("importMathDist", {parcelle : "larzat"}, function(session){
           mysession = session;
           console.log(mysession);
           $("#output").text(mysession.getLoc());
-        });
-        
-        var req = ocpu.call("Calcul_fourmis_distance", {
+          var req = ocpu.call("Calcul_fourmis_distance", {
           dist_mat : mysession
         }, function(session){
           session.getObject(function(data){
@@ -31,6 +29,9 @@
         }).fail(function(){
           alert(req.responseText);
         });
+        });
+        
+        
         
         
         //if R returns an error, alert the error message
