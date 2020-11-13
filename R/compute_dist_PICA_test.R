@@ -1,6 +1,13 @@
+importMathDist <- function(parcelle) {
+  dist_mat_file <- paste0("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_"+parcelle+"_2.csv")
+  dist_mat <- read.csv(dist_mat_file, sep = ",", dec = ".",header = T)
+  return(dist_mat)
+ }
+
+
 # Charger toutes les fonctions d abord :
-Calcul_fourmis_distance <- function() {
-  parcelle_ID <- "Larzat"
+Calcul_fourmis_distance <- function(dist_mat, parcelle) {
+  parcelle_ID <- parcelle
   annee <- 2017
   selected <- c(76,66,39,44,48,79)
   
@@ -10,7 +17,7 @@ Calcul_fourmis_distance <- function() {
   liste_sites <- read.csv("https://cloud.opencpu.org/ocpu/apps/vallooy/pica/www/data_to_python_matrix_larzat.csv", sep = ",", dec = ".",header = T)  
   # La liste des individus associés aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
     
-  dist_mat <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_larzat_2.csv", sep = ",", dec = ".",header = T)  
+  dist_mat <- dist_mat
   # La matrice de distance, assez long à charger
   
   #entree_file <- paste0(dossier,"Point_entree_",parcelle_ID,".txt")
