@@ -20,15 +20,17 @@
           mysession = session;
           console.log(mysession);
           $("#output").text(mysession.getLoc());
-          var req = ocpu.call("Calcul_fourmis_distance", {
-          dist_mat : mysession
-        }, function(session){
-          session.getObject(function(data){
-            console.log(data);
-          });
-        }).fail(function(){
-          alert(req.responseText);
+         }).fail(function(){
+          alert(req2.responseText);
         });
+        var req2 = ocpu.call("Calcul_fourmis_distance", {
+            dist_mat : mysession
+            }, function(session){
+              session.getObject(function(data){
+              console.log(data);
+            });
+          }).fail(function(){
+          alert(req2.responseText);
         });
         
         
