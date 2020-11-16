@@ -40,7 +40,7 @@ Calcul_fourmis_distance <- function(dist_mat, parcelle, millesime, selected) {
   # Les bords de rang utilises comme point d'entree dans la parcelle
   if (parcelle_ID == "Arnel") { ID_start <- 2310 }
   if (parcelle_ID == "Estagnol") { ID_start <- 1021 }
-  if (parcelle_ID == "Larzat") { ID_start <- 3946 }
+  if (parcelle_ID == "Larzat") { ID_start <- 9 }
   
   N <- length(selected) #nombre de site de mesure
   
