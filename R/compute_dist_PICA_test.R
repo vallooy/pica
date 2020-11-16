@@ -1,5 +1,5 @@
 importMathDist <- function(parcelle) {
-  dist_mat_file <- paste0("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_",parcelle,"_2.csv")
+  dist_mat_file <- paste0("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_",parcelle,".csv")
   dist_mat <- read.csv(dist_mat_file, sep = ",", dec = ".",header = T)
   return(dist_mat)
  }
