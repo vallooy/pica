@@ -25,7 +25,7 @@ Calcul_fourmis_distance <- function(dist_mat, parcelle, millesime, selected) {
   liste_sites <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/data_to_python_matrix_Larzat.csv", sep = ",", dec = ".",header = T)  
   # La liste des individus associés aux ligne de la matrice de distance (un individu apparait deux fois, une fois pour chaque interang
     
-  dist_mat <- "http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_Larzat.csv"
+  dist_mat <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/dist_parcelle_Larzat.csv", sep = ",", dec = ".",header = T)
   # La matrice de distance, assez long à charger
   
   #entree_file <- paste0(dossier,"Point_entree_",parcelle_ID,".txt")
