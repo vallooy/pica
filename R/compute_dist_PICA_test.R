@@ -15,7 +15,7 @@ Calcul_fourmis_distance <- function(dist_mat, parcelle, millesime, selected) {
   } else if (millesime == "pica2019") {
     annee <- 2019
   }
-  selected <- c(76,66,39,44,48,79,99)
+  #selected <- c(76,66,39,44,48,79,99)
   
   parcelle_path <- paste0("http://www.agrotic.org/test/yoann/pica/assets/vecteur/Parcelle_simulated_",parcelle_ID,"_",annee,".csv")
   parcelle <- read.csv(parcelle_path, sep = ",", dec = ".",header = T)  
