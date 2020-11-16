@@ -4,6 +4,10 @@ importMathDist <- function(parcelle) {
   return(dist_mat)
  }
 
+testFormat <- function(vector) {
+  return(vector)
+  }
+
 
 # Charger toutes les fonctions d abord :
 Calcul_fourmis_distance <- function(dist_mat, parcelle, millesime, selected) {
