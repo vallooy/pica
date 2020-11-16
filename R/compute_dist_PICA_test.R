@@ -16,6 +16,7 @@ Calcul_fourmis_distance <- function(dist_mat, parcelle, millesime, selected) {
     annee <- 2019
   }
   selected <- c(76,66,39,44,48,79,99)
+  print(selected)
   #parcelle_path <- paste0("http://www.agrotic.org/test/yoann/pica/assets/vecteur/Parcelle_simulated_",parcelle_ID,"_",annee,".csv")
   parcelle <- read.csv("http://www.agrotic.org/test/yoann/pica/assets/vecteur/Parcelle_simulated_Larzat_2017.csv", sep = ",", dec = ".",header = T)  
   #La liste des points de la parcelle
